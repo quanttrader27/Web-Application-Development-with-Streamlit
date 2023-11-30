@@ -1,0 +1,8 @@
+{
+  "name": "rating_star",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@mui/material": "^5.14.19"
+  }
+}

@@ -1,14 +1,14 @@
 from sqlalchemy import Column, Integer, String
-from .Base import Base
+from .Base import db
 
 
-class Employees(Base):
+class Employees(db.Model):
     __tablename__ = 'persons'
-    id = Column(Integer, primary_key=True)
+    id = db.Column(Integer, primary_key=True)
 
-    name = Column(String)
-    date_of_birth = Column(String, default=True)
-    paygrade_id = Column(Integer, unique=True, index=True)
+    name = db.Column(String)
+    date_of_birth = db.Column(String, default=True)
+    paygrade_id = db.Column(Integer, unique=True, index=True)
 
     def to_dict(self):
         return {

@@ -1,10 +1,12 @@
 import streamlit as st
 import psycopg2
+import pandas as pd
 
 
-@st.cache(allow_output_mutation=True,
-          hash_funcs={"_thread.RLock": lambda _: None})
+#@st.cache(allow_output_mutation=True,
+#          hash_funcs={"_thread.RLock": lambda _: None})
 def init_connection():
+    print(f'secret: {st.secrets["db_postrgres"]}')
     return psycopg2.connect(**st.secrets["db_postrgres"])
 
 
@@ -40,3 +42,6 @@ with c2:
 
 st.write(output)
 
+
+df = pd.DataFrame(output)
+st.dataframe(df)
